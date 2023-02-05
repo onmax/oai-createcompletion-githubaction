@@ -19,6 +19,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Check user
+        run: |
+          echo $GITHUB_ACTOR
+          if [ $GITHUB_ACTOR != 'onmax' ]; then
+            echo 'User is not onmax'
+            exit 1
+          fi
       - uses: ./
         with:
-          milliseconds: 1000
+          model: 'ada'
+          prompt: 'Hello model!'
+          max_tokens: '12'
+          temperature: '0.4'
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          openai_org_id: ${{ secrets.OPENAI_ORG_ID }}
+          
+      # Examples on how to use the output
+      - name: Show response from OpenAI CreateCompletion
+        run: |
+          # Using the character `'` to prevent all characters enclosed within
+          # them from being treated as special characters (e.g. $ or `)
+          echo '${{ steps.openai.outputs.response }}'
+
+          # Show text
+          echo '${{ fromJson(steps.openai.outputs.response).text }}'

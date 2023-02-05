@@ -1,11 +1,27 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'openai-action'
+description: 'A GitHub Action to use OpenAI text completion API'
+author: 'onmax'
 inputs:
-  milliseconds: # change this
+  model:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'model to use'
+  prompt:
+    required: true
+    description: 'prompt for the model'
+  max_tokens:
+    required: false
+    description: 'maximum number of tokens to generate'
+    default: '12'
+  temperature:
+    required: false
+    description: 'temperature for the model'
+    default: '0.4'
+  openai_api_key:
+    required: true
+    description: 'OpenAI API key'
+  openai_org_id:
+    required: false
+    description: 'OpenAI organization ID'
 runs:
   using: 'node16'
   main: 'dist/index.js'
