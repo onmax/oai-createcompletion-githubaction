@@ -1,8 +1,9 @@
 name: 'OpenAI CreateCompletion'
 description: 'A GitHub Action to use OpenAI text completion API'
 author: 'onmax'
-icon: 'align-left'
-color: 'purple'
+branding:
+  icon: 'align-left'
+  color: 'purple'
 inputs:
   model:
     required: true
