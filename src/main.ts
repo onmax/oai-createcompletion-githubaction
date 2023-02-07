@@ -1,16 +1,19 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import {getResponse} from './openai'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    const model: string = core.getInput('model')
+    const max_tokens: number = parseInt(core.getInput('max_tokens'))
+    const temperature: number = parseFloat(core.getInput('temperature'))
+    const prompt: string = core.getInput('prompt')
+    const apiKey: string = core.getInput('openai_api_key')
+    const organization: string = core.getInput('openai_org_id')
+    const res = await getResponse({
+      modelConf: {model, prompt, max_tokens, temperature},
+      apiConf: {apiKey, organization}
+    })
+    core.setOutput('response', JSON.stringify(res))
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }

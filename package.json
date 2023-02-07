@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "oai-createcompletion-githubaction",
+  "version": "1.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "GitHub Action for OpenAI's CreateCompletion API",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -10,12 +10,12 @@
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/onmax/oai-createcompletion-githubaction.git"
   },
   "keywords": [
     "actions",
@@ -25,7 +25,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.0",
+    "openai": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.0",
