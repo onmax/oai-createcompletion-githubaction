@@ -33,9 +33,9 @@ Finally, you can use the action in your workflow:
 
 ```yaml
 steps:
-  - name: Execute OpenAI CreateCompletion
+  - name: OpenAI CreateCompletion
+    uses: onmax/oai-createcompletion-githubaction@v1.0
     id: openai
-    uses: onmax/openai-createcompletion-github-action@v1.0
     with:
       model: davinci # or curie, babbage, ada. Or any other model documented in the openai docs
       prompt: "This is a test" # the prompt to generate the completion
