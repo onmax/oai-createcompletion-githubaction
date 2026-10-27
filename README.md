@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/onmax/oai-createcompletion-githubaction/actions"><img alt="oai-createcompletion-githubaction status" src="https://github.com/onmax/oai-createcompletion-githubaction/actions/workflows/test.yml/badge.svg"></a>
+  <a href="https://github.com/onmax/oai-createcompletion-githubaction/actions"><img alt="oai-createcompletion-githubaction status" src="https://comark-ui.onmax.me/badge.svg?source=github-actions&amp;repository=onmax%2Foai-createcompletion-githubaction&amp;workflow=test.yml&amp;branch=main&amp;icon=github"></a>
 </p>
 
 # OpenAI CreateCompletion - GitHub Action
